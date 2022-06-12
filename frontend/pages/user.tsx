@@ -71,8 +71,9 @@ const User: NextPage = () => {
 
   React.useEffect(() => {
     getUserInfo();
-    PullData();
-  }, [userName,userPhone])
+    setTimeout(() => {PullData()},5000);
+    //PullData();
+  }, [userName,userPhone,QaDatas])
   // Originally Pulling data from DB
   // And then, saved data called "QaDatas"
 
@@ -118,6 +119,7 @@ const User: NextPage = () => {
           tmpQaDatas.push(res.data[i]);
         }
         setQaDatas(tmpQaDatas);
+        //setQaDatas(res.data);
       }
     )
   }
